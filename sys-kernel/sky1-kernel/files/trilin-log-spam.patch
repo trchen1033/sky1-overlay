@@ -1,0 +1,22 @@
+diff --git a/drivers/gpu/drm/cix/dptx/trilin_drm.c b/drivers/gpu/drm/cix/dptx/trilin_drm.c
+index 2b9e4a939eaa..c0ca58082c24 100644
+--- a/drivers/gpu/drm/cix/dptx/trilin_drm.c
++++ b/drivers/gpu/drm/cix/dptx/trilin_drm.c
+@@ -932,7 +932,7 @@ int trilin_dp_encoder_compute_config(struct drm_encoder *encoder,
+ 
+ 	if (!(info_formats & DRM_COLOR_FORMAT_RGB444)) {
+ 		info_formats |= DRM_COLOR_FORMAT_RGB444;
+-		DP_WARN("info_format=%0x, force support RGB444", info->color_formats);
++		DP_DEBUG("info_format=%0x, force support RGB444", info->color_formats);
+ 	}
+ 
+ 	const int COMMON_COLORS_FORMATS[] = {
+@@ -980,7 +980,7 @@ int trilin_dp_encoder_compute_config(struct drm_encoder *encoder,
+ 
+ 	link_rate_bw_code = drm_dp_link_rate_to_bw_code(link_rate);
+ 
+-	DP_INFO("mode %s clock=%d bpc=%d bpp=%d link_rate=%d (%s) lanes=%d max_bpc=%d\n",
++	DP_DEBUG("mode %s clock=%d bpc=%d bpp=%d link_rate=%d (%s) lanes=%d max_bpc=%d\n",
+ 		adjusted_mode->name, adjusted_mode->clock, bpc, bpp,
+ 		link_rate,
+ 		link_rate == 810000 ? "HBR3" :

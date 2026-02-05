@@ -1,0 +1,29 @@
+diff --git a/drivers/gpu/drm/cix/Kconfig b/drivers/gpu/drm/cix/Kconfig
+index c826b9decd7c..0a7aaa084143 100644
+--- a/drivers/gpu/drm/cix/Kconfig
++++ b/drivers/gpu/drm/cix/Kconfig
+@@ -13,6 +13,7 @@ config DRM_LINLONDP
+ 	depends on DRM && OF
+ 	depends on COMMON_CLK
+ 	depends on DRM_CIX
++	select DRM_CLIENT_SELECTION
+ 	select DRM_KMS_HELPER
+ 	select DRM_GEM_DMA_HELPER
+ 	select VIDEOMODE_HELPERS
+diff --git a/drivers/soc/cix/Kconfig b/drivers/soc/cix/Kconfig
+index 40c57dde7d53..88d9d61a8276 100644
+--- a/drivers/soc/cix/Kconfig
++++ b/drivers/soc/cix/Kconfig
+@@ -1,10 +1,11 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ 
+ config CIX_SKY1_SOCINFO
+-	tristate "CIX Sky1 SoC information driver"
++	bool "CIX Sky1 SoC information driver"
+ 	depends on ARCH_CIX || COMPILE_TEST
+ 	depends on NVMEM
+ 	default ARCH_CIX
++	select SOC_BUS
+ 	help
+ 	  Say yes here to enable support for the CIX Sky1 SoC information
+ 	  driver. This provides SoC identification, firmware version
